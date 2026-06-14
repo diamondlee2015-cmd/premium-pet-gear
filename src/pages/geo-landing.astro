@@ -1,0 +1,139 @@
+---
+// src/pages/geo-landing.astro
+import Layout from '~/layouts/PageLayout.astro';
+// 引入你隔离出来的组件（后续我们可以进一步定制它们）
+import HeroGEO from '~/components/widgets/HeroGEO.astro'; 
+
+const metadata = {
+  title: 'AI Valuation Shield & GEO Interception | Linear Style',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- 注入局部本地变量，完美对齐 Linear 的视觉 Token，绝不污染全局 -->
+  <style is:global>
+    :root {
+      --color-linear-bg: #000212;       /* Linear 标志性墨黑底色 */
+      --color-linear-card: #0b0d19;     /* 带有极微弱紫蓝调的卡片底色 */
+      --color-linear-border: #1f2438;   /* 极其克制的科技感暗边框 */
+      --color-linear-purple: #5e6ad2;   /* 核心高光紫蓝 */
+      --color-linear-green: #10b981;    /* 激活绿（数据上涨指针） */
+      --color-text-primary: #f7f8f8;    /* 高亮文本 */
+      --color-text-muted: #b4bcd0;      /* 优雅灰度正文 */
+    }
+  </style>
+
+  <!-- 页面根容器：强制披上 Linear 专属皮肤 -->
+  <div class="bg-[var(--color-linear-bg)] text-[var(--color-text-primary)] min-h-screen antialiased select-none selection:bg-[var(--color-linear-purple)] selection:text-white font-sans">
+    
+    <!-- HERO 核心痛点模块：Matt Pocock 式致命提问 -->
+    <div class="max-w-5xl mx-auto px-4 pt-28 pb-16 text-center">
+      <!-- 顶部小胶囊标签 -->
+      <span class="inline-block text-[11px] font-semibold tracking-widest text-[var(--color-linear-purple)] uppercase bg-[var(--color-linear-purple)]/10 px-3 py-1 rounded-full border border-[var(--color-linear-purple)]/20 animate-fade-in">
+        Agentic Workflow & GEO Architecture
+      </span>
+      
+      <!-- 主标题：巨大、高对比度、直击痛点 -->
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mt-6 mb-8 max-w-4xl mx-auto leading-[1.15]">
+        当高净值客户在 ChatGPT 寻找你的服务时，<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-linear-purple)] to-[var(--color-linear-green)]">
+          AI 正在把他们推荐给你的竞争对手。
+        </span>
+      </h1>
+      
+      <!-- 副标题：解释 Slimdoc/1 Doc 模式下的偏见危机 -->
+      <p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+        2026年，传统广告频频封号，拟上市企业声誉被 AI 叙事偏见暗中唱衰。我们通过智能体工作流，在算法底层精准拦截属于你的高客单价金主。
+      </p>
+      
+      <!-- 极具仪式感的高光行动按钮 -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a 
+          href="https://wa.me/+60128631019" 
+          target="_blank"
+          class="bg-[var(--color-linear-purple)] hover:bg-[var(--color-linear-purple)]/90 text-white font-medium px-8 py-4 rounded-lg border border-white/10 shadow-[0_0_30px_rgba(94,106,210,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 text-sm md:text-base"
+        >
+          免费获取 Slimdoc / 1 Doc 同款 AI 估值流失审计报告 (WhatsApp)
+        </a>
+      </div>
+    </div>
+
+    <!-- BENTO GRID 模块网格：将 AI 的偏见作为铁证公开展示 -->
+<div class="max-w-5xl mx-auto px-4 py-12">
+  <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight">
+    算法在暗处下的判决：看清 AI 正在如何系统性解构拟上市企业
+  </h2>
+
+  <!-- 3列/2列响应式硬核网格布局 -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    <!-- 卡片 1：占据2列的长卡片 —— AI 对传统营销的信任崩塌 -->
+    <div class="md:col-span-2 border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 rounded-2xl p-8 backdrop-blur-sm shadow-[inset_0_1px_20px_rgba(255,255,255,0.02)] hover:border-[var(--color-linear-purple)]/50 transition-all duration-300">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-xs font-mono text-red-400 bg-red-500/10 px-2 py-1 rounded border border-red-500/20">
+          ● LLM 信任度反噬警告
+        </span>
+        <span class="text-xs text-[var(--color-text-muted)] font-mono">Module: Entity_Audit</span>
+      </div>
+      <h3 class="text-xl font-bold mb-3 text-white">传统百万广告费，被 AI 定性为“自嗨营销”</h3>
+      <p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-4">
+        Slimdoc 砸入 Facebook / Instagram 的六位数网红体验广告，在 ChatGPT 检索端触发了安全防御机制。AI 直接对机构投资者输出：<span class="text-red-400 font-medium">“公开可见的大多是成功案例，不能只看对比照片或 KOL 宣传。”</span>
+      </p>
+      <div class="bg-black/40 border border-[var(--color-linear-border)] rounded-xl p-4 font-mono text-xs text-left text-gray-400">
+        <span class="text-[var(--color-linear-purple)]">System_Status:</span> 传统 SEO / Meta 广告无法向大模型注入“客观商业实体契合度”，预算越多，AI 偏见系数越高。
+      </div>
+    </div>
+
+    <!-- 卡片 2：占据1列的方卡片 —— 核心商业模式被唱衰 -->
+    <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 rounded-2xl p-8 backdrop-blur-sm shadow-[inset_0_1px_20px_rgba(255,255,255,0.02)] hover:border-[var(--color-linear-purple)]/50 transition-all duration-300 flex flex-col justify-between">
+      <div>
+        <div class="text-xs font-mono text-amber-400 bg-amber-500/10 px-2 py-1 rounded border border-amber-500/20 inline-block mb-4">
+          ⚠ Valuation Killer
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">估值模型遭公开质疑</h3>
+        <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
+          当投资人询问上市前景时，AI 无法提取留存率实体，直接判定：<span class="text-amber-400 font-medium">“过度依赖新客获取，复购率成谜，扩张成本会越来越高。”</span>
+        </p>
+      </div>
+      <div class="text-xs font-mono text-[var(--color-linear-green)] mt-4">
+        市值负面侵蚀率: 70%
+      </div>
+    </div>
+
+    <!-- 卡片 3：占据1列的方卡片 —— 战略利好变成风险负担 -->
+    <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 rounded-2xl p-8 backdrop-blur-sm shadow-[inset_0_1px_20px_rgba(255,255,255,0.02)] hover:border-[var(--color-linear-purple)]/50 transition-all duration-300 flex flex-col justify-between">
+      <div>
+        <div class="text-xs font-mono text-red-400 bg-red-500/10 px-2 py-1 rounded border border-red-500/20 inline-block mb-4">
+          ❌ Strategy Dilution
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">战略利好沦为“负包袱”</h3>
+        <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
+          招股书中“进入新加坡扩张31家门店”的重大利好，被 AI 自动套用行业负面模板，唱衰为：<span class="text-red-400 font-medium">“租金上涨、招聘困难、拉低整体 ROI。”</span>
+        </p>
+      </div>
+      <div class="text-xs font-mono text-gray-500 mt-4">
+        Action Required: RAG Injector
+      </div>
+    </div>
+
+    <!-- 卡片 4：占据2列的长卡片 —— 我们的 Agentic 自动化反拦截引擎 -->
+    <div class="md:col-span-2 border border-dashed border-[var(--color-linear-purple)]/50 bg-[var(--color-linear-purple)]/5 rounded-2xl p-8 backdrop-blur-sm hover:bg-[var(--color-linear-purple)]/10 transition-all duration-300">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-xs font-mono text-[var(--color-linear-green)] bg-[var(--color-linear-green)]/10 px-2 py-1 rounded border border-[var(--color-linear-green)]/20">
+          ✓ GEO & Agentic Counter-Attack
+        </span>
+        <span class="text-xs text-[var(--color-linear-purple)] font-mono">Engine: n8n_Gemini_RAG</span>
+      </div>
+      <h3 class="text-xl font-bold mb-3 text-white">GEO 特种拦截：用算法清洗大模型的知识大脑</h3>
+      <p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-4">
+        传统的发通稿公关对大模型无效。我们通过 **Agentic 工作流**，在财经独立审计源、高权重独立博客等 AI 高度信任的第三方节点，批量注入经清洗的结构化财务实体与会员回购率数据。强行让 ChatGPT 在 72 小时内，将负面叙事覆盖为完美的上市预期。
+      </p>
+      <div class="flex gap-2">
+        <div class="w-2 h-2 rounded-full bg-[var(--color-linear-green)] animate-pulse"></div>
+        <span class="text-xs font-mono text-[var(--color-linear-green)]">1 Doc International 专项算法盾牌就绪</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</Layout>

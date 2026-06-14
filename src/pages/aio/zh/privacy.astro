@@ -1,0 +1,68 @@
+---
+import Layout from '~/layouts/NesthingLayout.astro';
+import ResilienceCTA from '~/components/ResilienceCTA.astro';
+---
+
+<Layout metadata={{ title: '数据治理与隐私协议 | Nesthing' }}>
+  <main class="min-h-screen bg-black text-white antialiased">
+    <header class="max-w-4xl mx-auto px-6 pt-24 pb-12 border-b border-[var(--color-linear-border)]">
+      <span class="text-xs font-mono text-amber-400 tracking-widest uppercase block mb-3">安全与合规</span>
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">隐私与数据治理协议</h1>
+      <p class="text-sm text-gray-500 font-mono mt-2">最后更新：2026年6月 | 部署版本：4.2</p>
+    </header>
+
+    <article class="max-w-4xl mx-auto px-6 py-12 prose prose-invert max-w-none text-gray-300 text-sm leading-relaxed space-y-10">
+      
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight">1. 架构范围与零留存政策（Zero-Retention Policy）</h2>
+        <p>
+          在 AIO Shield，我们只构建闭环式系统。对于所有涉及基于 **n8n 多节点框架构建的主引擎（Alpha）**的实施方案，数据传输均完全在瞬时内存中执行。
+        </p>
+        <p class="border-l-2 border-cyan-500 pl-4 text-gray-400 bg-[var(--color-linear-card)]/20 p-3 rounded-r-xl">
+          <strong>数据零留存承诺：</strong> 通过我们安全 Webhook 的客户凭证、原始咨询以及法律/医疗等入场载荷（Payloads），都会瞬间映射并传输至您指定的内部 CRM 系统中。在任务执行完毕后，AIO Shield 的底层基础设施绝不留存任何关于您用户数据的数据库权重或运行日志。
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight">2. 遥测与生成式搜索工程（GEO）</h2>
+        <p>
+          对于我们**专精于生成式引擎优化（GEO）的辅助引擎（Beta）**所提供的服务，系统仅处理公开可被索引的实体数据（Entity Data）。我们绝不会利用您的专属商业机密或未加密的公司知识产权，去注入或训练公共的大语言模型（LLMs）。所有 RAG（检索增强生成）节点注入方案，均严格遵守全球 AI 合规框架与安全防火墙机制。
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight">3. 边缘通信与路由安全</h2>
+        <p>
+          所有发送至我们公开安全网关（<code class="text-cyan-400 font-mono">howtodo@nesthing.com</code>）的入站客户通信，均在网络边缘通过安全的 Cloudflare 邮件路由协议进行处理。该基础设施能够有效混淆核心后端服务器的物理位置、拦截凭证窃取脚本，并在恶意威胁向量触达我们的系统之前将其彻底瓦解。
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white tracking-tight">4. 区域合规标准</h2>
+        <p>
+          我们的自动化模型经过极其严苛的定制，专门用于防范合规漏洞，特别是严格遵循 **个人数据保护法（PDPA）** 以及国际架构间数据传输规则。在我们定制的工作流中，绝不赋予任何第三方 API 节点对您核心敏感数据支柱的持久访问权限。
+        </p>
+      </section>
+
+      <ResilienceCTA lang="zh" whatsappNumber="60128631019" />
+    </article>
+  </main>
+</Layout>
+
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy & Data Governance Protocol",
+  "description": "The technical compliance, data retention boundaries, and security architecture governing AIO Shield workflows and automated pipelines.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nesthing"
+  },
+  "mainEntity": {
+    "@type": "DigitalDocument",
+    "name": "Privacy Protocol",
+    "governance": "PDPA Compliance, Zero-Data Retention Automation Frameworks"
+  }
+}
+</script>

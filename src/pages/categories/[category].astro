@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '~/layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+  
+  // 提取所有不重复的类目 slug
+  const categories = [...new Set(allProducts.map((p) => p.data.category))];
+  
+  return categories.map((cat) => ({
+    params: { category: cat },
+    props: { 
+      categoryName: cat.replace(/-/g, ' ').toUpperCase(),
+      products: allProducts.filter((p) => p.data.category === cat)
+    },
+  }));
+}
+
+const { categoryName, products } = Astro.props;
+---
+
+<Layout metadata={{ title: `${categoryName} Wholesale Directory` }}>
+  <section class="py-16 bg-slate-50 dark:bg-slate-900/20 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="border-b border-gray-200 dark:border-slate-800 pb-6 mb-12">
+        <nav class="text-xs text-muted mb-2 uppercase tracking-wider"><a href="/" class="hover:underline">Home</a> / <span class="text-gray-400">Categories</span></nav>
+        <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">{categoryName} Line</h1>
+        <p class="text-sm text-muted mt-2">Verified factory-direct procurement index. Total {products.length} specifications found.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {products.map(prod => (
+          <a href={`/products/${prod.slug}`} class="group bg-white dark:bg-slate-900 p-5 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+            <div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg overflow-hidden h-48 flex items-center justify-center mb-4">
+              <img src={prod.data.image} alt={prod.data.title} class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
+            </div>
+            <div>
+              <h4 class="font-bold text-gray-900 dark:text-white text-sm line-clamp-2 group-hover:text-primary transition-colors">{prod.data.title}</h4>
+              <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-50 dark:border-slate-800/60 text-xs text-muted">
+                <span class="font-mono">MOQ: {prod.data.moq || '1 CTN'}</span>
+                <span class="font-medium text-primary group-hover:underline">View Specs →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      
+    </div>
+  </section>
+</Layout>

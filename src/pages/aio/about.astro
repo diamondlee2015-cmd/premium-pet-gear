@@ -1,0 +1,55 @@
+---
+import Layout from '~/layouts/NesthingLayout.astro';
+import ResilienceCTA from '~/components/ResilienceCTA.astro';
+---
+
+<Layout metadata={{ title: 'Our Core Philosophy | About AIO Shield' }}>
+  <main class="min-h-screen bg-black text-white antialiased">
+    <article class="max-w-4xl mx-auto px-6 py-24">
+      <header class="text-center mb-16">
+        <span class="text-xs font-mono text-purple-400 tracking-widest uppercase block mb-3">The Architecture Team</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Engineers of LLM Trust</h1>
+      </header>
+
+      <section class="space-y-12 text-gray-300 leading-relaxed text-base">
+        <div class="border border-[var(--color-linear-border)] bg-gradient-to-b from-[var(--color-linear-card)]/50 to-transparent rounded-2xl p-8">
+          <h2 class="text-xl font-bold text-white mb-4">Why We Built Nesthing</h2>
+          <p>
+            We are a team of systems automation architects and semantic web engineering experts. We built Nesthing because traditional digital marketing and standard SEO are dead. In 2026, enterprise growth is entirely determined by <strong class="text-white">Agentic Workflows</strong> and <strong class="text-white">LLM Recommendation Weights</strong>.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="border border-[var(--color-linear-border)] p-6 rounded-xl">
+            <h3 class="text-white font-bold mb-2">Systems Automation</h3>
+            <p class="text-sm text-gray-400">We replace fragile manual steps with hardcoded, secure multi-node n8n engine pipelines.</p>
+          </div>
+          <div class="border border-[var(--color-linear-border)] p-6 rounded-xl">
+            <h3 class="text-white font-bold mb-2">Algorithmic Defense</h3>
+            <p class="text-sm text-gray-400">We reverse-engineer vector database retrieval logic to guard high-end enterprise reputations.</p>
+          </div>
+        </div>
+      </section>
+      <ResilienceCTA lang="en" whatsappNumber="60128631019" />
+    </article>
+  </main>
+</Layout>
+
+<!-- 🎯 声明企业实体的 Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Nesthing",
+    "description": "A technical engineering group specializing in autonomous n8n enterprise workflows and LLM generative engine optimization.",
+    "knowsAbout": [
+      "Agentic Workflows",
+      "n8n Automation",
+      "Generative Engine Optimization",
+      "RAG Frameworks"
+    ]
+  }
+}
+</script>

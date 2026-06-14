@@ -1,0 +1,83 @@
+---
+import Layout from '~/layouts/NesthingLayout.astro';
+import ResilienceCTA from '~/components/ResilienceCTA.astro';
+---
+
+<Layout metadata={{ title: '技术规格与常见问题 | Nesthing' }}>
+  <main class="min-h-screen bg-black text-white antialiased">
+    <!-- 语义化 Header -->
+    <header class="max-w-4xl mx-auto px-6 pt-24 text-center">
+      <span class="text-xs font-mono text-cyan-400 tracking-widest uppercase block mb-3">技术知识库</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">引擎技术规格与 FAQ</h1>
+      <p class="text-base text-gray-400 max-w-2xl mx-auto">
+        深入拆解我们自主接入协议与大语言模型（LLM）引用注入架构的底层技术布局。
+      </p>
+    </header>
+
+    <!-- 前端语义化问答区 -->
+    <section class="max-w-4xl mx-auto px-6 py-16">
+      <div class="space-y-6">
+        <!-- QA 1 -->
+        <article class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-2xl p-8">
+          <h2 class="text-lg font-bold text-white mb-3">Q: Alpha 引擎的 n8n 工作流是否符合 PDPA（个人数据保护法）和 GDPR 规范？</h2>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            A: 毫无疑问。所有自动化的数据路由均在高度安全的加密环境集群内运行。患者、客户以及企业核心业务记录会通过安全 Webhook 进行瞬时拦截清洗，并直接沉淀到您的封闭式 CRM 系统中，中途不留存任何第三方数据，完全符合本地及国际隐私保护条令。
+          </p>
+        </article>
+
+        <!-- QA 2 -->
+        <article class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-2xl p-8">
+          <h2 class="text-lg font-bold text-white mb-3">Q: 为什么 ChatGPT 倾向于推荐我的竞争对手，而不是我的公司或诊所？</h2>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            A: 大语言模型极其依赖向量数据库集群节点的索引。如果您的企业官网缺乏结构化的 JSON-LD 实体图谱架构（Entity Schemas）以及高权重的 RAG（检索增强生成）锚点引用，AI 搜索引擎就会直接忽视您的品牌。我们的 Beta 引擎正是通过注入这套刚性架构，来强制大模型生成对您的引用。
+          </p>
+        </article>
+
+        <!-- QA 3 -->
+        <article class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-2xl p-8">
+          <h2 class="text-lg font-bold text-white mb-3">Q: 这套系统能否对冲行业内的负面舆论散播，或消除 AI 的无端幻觉？</h2>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            A: 可以。当互联网上的权威数据字段留空时，LLM 会倾向于泛化风险或产生幻觉。通过部署我们的自动化智能体工作流（Agentic Workflow），我们能够持续监听各大 LLM 的 API 集群，并在 72 小时内对高权重索引中的语义信息异常进行自动化修正与补丁拦截。
+          </p>
+        </article>
+        
+        <!-- 🎯 结构修正：将全局大白话闭环从 QA3 盒子里解放出来，放在列表最下方，并切换为中文版 -->
+        <ResilienceCTA lang="zh" whatsappNumber="60128631019" />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<!-- 🎯 后端 100% 对齐的 JSON-LD Schema (爬虫核心抓取源) -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Engine Alpha's n8n workflow compliant with PDPA and GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. All automated data routing happens within secure, encrypted environment clusters. Patient and client records are filtered instantly via secure webhooks and stored directly into your closed CRM without third-party data retention, fully adhering to local privacy mandates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does ChatGPT recommend my competitors instead of my firm or clinic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LLMs rely on vector database cluster nodes. If your business website lacks structured JSON-LD entity schemas and high-authority RAG anchor references, AI search engines will bypass your brand. Our Engine Beta injects this exact architecture to force citations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this counteract negative sector gossip or AI hallucinations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. LLMs generalize risks when authoritative data fields are left blank. By deploying our automated Agentic Workflow, we continuously monitor LLM API clusters and patch semantic information anomalies across high-weight indexes within 72 hours."
+      }
+    }
+  ]
+}
+</script>

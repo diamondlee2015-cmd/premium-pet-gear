@@ -31,6 +31,15 @@ const columnsClass =
       : columns === 2
         ? 'sm:grid-cols-2'
         : '';
+
+// 🌟 新增：前端高能 Slugify 映射函数，确保点击产品名生成的跳转链接和 Python 脚本 100% 物理对准
+const getProductSlug = (name: string) => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // 移除中文括号等特殊符号
+    .trim()
+    .replace(/[\s-]+/g, '-');   // 空格换成连字符
+};
 ---
 
 <WidgetWrapper
@@ -68,27 +77,61 @@ const columnsClass =
   {
     items.length > 0 && (
       <div class:list={['grid mx-auto gap-8 md:gap-y-12 mt-12', columnsClass]}>
-        {items.map(({ title: itemTitle, description, icon, callToAction }) => (
-          <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-            <div class="flex flex-row max-w-full sm:max-w-md">
+        {items.map(({ title: itemTitle, description, icon, callToAction, rawProducts = [] }) => (
+          <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[380px]">
+            <div class="flex flex-row max-w-full sm:max-w-md w-full">
+              {/* 左侧大类目图标 */}
               {(icon || defaultIcon) && (
                 <div class="flex justify-center">
-                  <Icon
-                    name={icon || defaultIcon}
-                    class="flex-shrink-0 mt-1 mr-2 rtl:mr-0 rtl:ml-2 w-6 h-6 text-primary"
-                  />
+                  <div class="p-2 bg-blue-50 dark:bg-slate-800 rounded-lg h-10 w-10 flex items-center justify-center mr-3">
+                    <Icon
+                      name={icon || defaultIcon}
+                      class="flex-shrink-0 w-6 h-6 text-primary"
+                    />
+                  </div>
                 </div>
               )}
-              <div class="mt-0.5">
-                {itemTitle && <h3 class="text-lg font-semibold">{itemTitle}</h3>}
-                {description && <p class:list={[{ 'mt-0.5': itemTitle }, 'text-muted']} set:html={description} />}
-                {callToAction && (
-                  <div class:list={[{ 'mt-3': itemTitle || description }]}>
-                    <Button variant="link" {...callToAction} />
-                  </div>
-                )}
+              
+              {/* 右侧核心展示区 */}
+              <div class="mt-0.5 w-full flex flex-col justify-between h-full">
+                <div>
+                  {itemTitle && <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">{itemTitle}</h3>}
+                  
+                  {/* 🌟 核心升级：如果配置了结构化产品数据，直接渲染带有完美跳转链接的 <a> 标签列表 */}
+                  {rawProducts && rawProducts.length > 0 ? (
+                    <ul class="space-y-2.5 text-sm text-gray-600 dark:text-slate-400">
+                      {rawProducts.map((pName) => (
+                        <li class="flex items-start">
+                          <span class="text-gray-300 mr-2 select-none">•</span>
+                          <a 
+                            href={`/products/${getProductSlug(pName)}`}
+                            class="hover:text-primary dark:hover:text-accent hover:underline transition-colors cursor-pointer text-left inline-block"
+                          >
+                            {pName}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    /* 备用方案：如果没有传原始数组，依然兼容旧的 description 静态渲染 */
+                    description && <p class:list={[{ 'mt-0.5': itemTitle }, 'text-muted']} set:html={description} />
+                  )}
+                </div>
               </div>
             </div>
+
+            {/* 底部一键直达分类目录按钮 */}
+            {callToAction && (
+              <div class="mt-6 pt-4 border-t border-gray-50 dark:border-slate-800/60 flex items-center justify-between text-xs text-muted w-full">
+                <span class="font-mono text-[11px]">MOQ: Optimized Line</span>
+                <a 
+                  href={callToAction.href} 
+                  class="font-bold text-primary dark:text-accent hover:underline flex items-center tracking-wider uppercase text-[11px]"
+                >
+                  {callToAction.text || 'View Directory'} →
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>

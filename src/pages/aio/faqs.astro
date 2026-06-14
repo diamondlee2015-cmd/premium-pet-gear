@@ -1,0 +1,82 @@
+---
+import Layout from '~/layouts/NesthingLayout.astro';
+import ResilienceCTA from '~/components/ResilienceCTA.astro';
+---
+
+<Layout metadata={{ title: 'Technical Specifications & FAQs | Nesthing' }}>
+  <main class="min-h-screen bg-black text-white antialiased">
+    <!-- 语义化 Header -->
+    <header class="max-w-4xl mx-auto px-6 pt-24 text-center">
+      <span class="text-xs font-mono text-cyan-400 tracking-widest uppercase block mb-3">Knowledge Base</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Engine Specifications & FAQs</h1>
+      <p class="text-base text-gray-400 max-w-2xl mx-auto">
+        Deep technical layout of our autonomous intake protocols and LLM citation injection architecture.
+      </p>
+    </header>
+
+    <!-- 前端语义化问答区 -->
+    <section class="max-w-4xl mx-auto px-6 py-16">
+      <div class="space-y-6">
+        <!-- QA 1 -->
+        <article class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-2xl p-8">
+          <h2 class="text-lg font-bold text-white mb-3">Q: Is Engine Alpha's n8n workflow compliant with PDPA and GDPR?</h2>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            A: Absolutely. All automated data routing happens within secure, encrypted environment clusters. Patient and client records are filtered instantly via secure webhooks and stored directly into your closed CRM without third-party data retention, fully adhering to local privacy mandates.
+          </p>
+        </article>
+
+        <!-- QA 2 -->
+        <article class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-2xl p-8">
+          <h2 class="text-lg font-bold text-white mb-3">Q: Why does ChatGPT recommend my competitors instead of my firm or clinic?</h2>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            A: LLMs rely on vector database cluster nodes. If your business website lacks structured JSON-LD entity schemas and high-authority RAG anchor references, AI search engines will bypass your brand. Our Engine Beta injects this exact architecture to force citations.
+          </p>
+        </article>
+
+        <!-- QA 3 -->
+        <article class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-2xl p-8">
+          <h2 class="text-lg font-bold text-white mb-3">Q: Can this counteract negative sector gossip or AI hallucinations?</h2>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            A: Yes. LLMs generalize risks when authoritative data fields are left blank. By deploying our automated Agentic Workflow, we continuously monitor LLM API clusters and patch semantic information anomalies across high-weight indexes within 72 hours.
+          </p>
+          
+                  </article>
+      </div>
+      <ResilienceCTA lang="en" whatsappNumber="60128631019" />
+    </section>
+  </main>
+</Layout>
+
+<!-- 🎯 后端 100% 对齐的 JSON-LD Schema (爬虫核心抓取源) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Engine Alpha's n8n workflow compliant with PDPA and GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. All automated data routing happens within secure, encrypted environment clusters. Patient and client records are filtered instantly via secure webhooks and stored directly into your closed CRM without third-party data retention, fully adhering to local privacy mandates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does ChatGPT recommend my competitors instead of my firm or clinic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LLMs rely on vector database cluster nodes. If your business website lacks structured JSON-LD entity schemas and high-authority RAG anchor references, AI search engines will bypass your brand. Our Engine Beta injects this exact architecture to force citations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this counteract negative sector gossip or AI hallucinations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. LLMs generalize risks when authoritative data fields are left blank. By deploying our automated Agentic Workflow, we continuously monitor LLM API clusters and patch semantic information anomalies across high-weight indexes within 72 hours."
+      }
+    }
+  ]
+}
+</script>

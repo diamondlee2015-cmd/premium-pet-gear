@@ -2,6 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
+import llmsTxtIntegration from './astro-llms-txt';
 
 import { unified } from '@astrojs/markdown-remark';
 
@@ -68,6 +69,13 @@ export default defineConfig({
     astrowind({
       config: './src/config.yaml',
     }),
+
+    // ✨ 语法已修正：完美闭环的 llms.txt 集成
+    llmsTxtIntegration({
+      title: 'Nesthing 核心知识库 (AIO Shield & Premium Pet Gear Ecosystem)',
+      description: '本技术白皮书展示如何利用工业级 n8n 自动化工作流与 GEO（生成式引擎优化）架构，颠覆传统东南亚大宗供应链（以大马豆腐猫砂批发为核心实战案例）。包含全天候智能体获客流、跨境物流自动化及市场一手行情数据说明。',
+      collections: ['blog'] 
+    }) // <--- 💡 就是这里，刚才漏掉了 })
   ],
 
   image: {

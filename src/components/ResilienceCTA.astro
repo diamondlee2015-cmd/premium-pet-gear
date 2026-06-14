@@ -1,0 +1,119 @@
+---
+// src/components/ResilienceCTA.astro
+interface Props {
+  lang?: 'zh' | 'en';
+  whatsappNumber?: string; // 默认：60128631019
+}
+
+const { lang = 'zh', whatsappNumber = '60128631019' } = Astro.props;
+
+const textZh = encodeURIComponent("你好 Nesthing，我看了你们的双引擎部署架构。我想预约 15 分钟的说明，为我们的业务定制一份 AI 拦截蓝图。");
+const textEn = encodeURIComponent("Hi Nesthing, I just reviewed your Dual-Engine Deployment architecture. I'd like to book a 15-minute consult session and get a complimentary AI ingestion blueprint for our operations.");
+
+const whatsappUrlZh = `https://wa.me/${whatsappNumber}?text=${textZh}`;
+const whatsappUrlEn = `https://wa.me/${whatsappNumber}?text=${textEn}`;
+---
+
+{lang === 'zh' ? (
+  <!-- 🇨🇳 中文版：完整大白话商业闭环 -->
+  <div class="mt-24 border-t border-slate-800 pt-16 max-w-5xl mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <span class="text-xs font-mono text-cyan-400 tracking-widest uppercase block mb-3">NEXT STEPS</span>
+      <h2 class="text-3xl font-bold">如何开始？我们如何为您交付结果？</h2>
+      <p class="text-slate-400 mt-2 text-sm md:text-base">不需要复杂的重构，不需要冗长的开发周期。我们提供的是「开箱即用」的成熟系统接入。</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <!-- 第一步 -->
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+        <div class="text-xs font-mono text-emerald-400 mb-2">STAGE 01 // 接入期</div>
+        <h4 class="text-lg font-bold text-white mb-2">轻量级架构无缝对接</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <b>您需要做什么：</b> 提供您的业务场景（如 WhatsApp 咨询通道或现有知识库）。<br/>
+          <b>我们做什么：</b> 我们通过主动式异步接入引擎，将您的数据通道与 Nesthing 系统秒级挂接。不影响您现有的任何业务运转。
+        </p>
+      </div>
+
+      <!-- 第二步 -->
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+        <div class="text-xs font-mono text-cyan-400 mb-2">STAGE 02 // 见效期 (2-3个月）</div>
+        <h4 class="text-lg font-bold text-white mb-2">首批线索与能见度交付</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <b>您将看到什么结果：</b> <br/>
+          1. <b>对内：</b> 您的团队将看到第一批由 AI 自动拦截、清洗并锁定在日程表上的高净值线索，漏斗转化率提升。<br/>
+          2. <b>对外：</b> 针对主流 AI 搜索引擎（如 ChatGPT Search）的结构化优化开始生效，锁定高意图推荐位。
+        </p>
+      </div>
+
+      <!-- 第三步 -->
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+        <div class="text-xs font-mono text-purple-400 mb-2">STAGE 03 // 韧性期 (3个月后)</div>
+        <h4 class="text-lg font-bold text-white mb-2">L3 自愈闭环全面形成</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <b>长期商业回报：</b> <br/>
+          系统积累足够的刚性事实与决策快照。即使遭遇 API 大面积网络波动，系统也能 0 延迟自动断点续传。通过长期的Telemetry 反馈闭环，AI 决策越来越聪明，获客成本（CAC）大幅降低。
+        </p>
+      </div>
+    </div>
+
+    <!-- 临门一脚的 WhatsApp CTA -->
+    <div class="mt-16 text-center bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-indigo-500/20 rounded-3xl p-8 md:p-12">
+      <h3 class="text-xl md:text-2xl font-bold mb-4">准备好让您的 AI 运营具备企业级韧性了吗？</h3>
+      <p class="text-gray-400 text-sm max-w-xl mx-auto mb-6">点击下方即刻通过 WhatsApp 联络我们，预约 15 分钟的架构对接说明。我们将根据您的具体业务，为您定制首份 AI 拦截蓝图。</p>
+      <a href={whatsappUrlZh} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-black bg-white rounded-xl hover:bg-slate-200 transition duration-200">
+        💬 预约 15 分钟技术说明 (WhatsApp) →
+      </a>
+    </div>
+  </div>
+) : (
+  <!-- 🇺🇸 英文版：完整大白话商业闭环 -->
+  <div class="mt-24 border-t border-slate-800 pt-16 max-w-5xl mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <span class="text-xs font-mono text-cyan-400 tracking-widest uppercase block mb-3">NEXT STEPS</span>
+      <h2 class="text-3xl font-bold">How to Get Started & What Results to Expect?</h2>
+      <p class="text-slate-400 mt-2 text-sm md:text-base">No complex overhauls, no endless dev cycles. We deliver turn-key operational resilience.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <!-- Step 1 -->
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+        <div class="text-xs font-mono text-emerald-400 mb-2">STAGE 01 // ONBOARDING</div>
+        <h4 class="text-lg font-bold text-white mb-2">Lightweight Seamless Integration</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <b>Your Part:</b> Share your operational constraints (e.g., WhatsApp intake channels or knowledge base paths).<br/>
+          <b>Our Part:</b> We hook your data pipelines into the Nesthing infrastructure via our Asynchronous Ingestion Engine. Zero disruption to your current operations.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+        <div class="text-xs font-mono text-cyan-400 mb-2">STAGE 02 // VISIBILITY (1-3 months)</div>
+        <h4 class="text-lg font-bold text-white mb-2">First Ingestion & GEO Traction</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <b>The Tangible Output:</b> <br/>
+          1. <b>Internal:</b> Your team witnesses high-intent raw inquiries captured, qualified, and booked straight onto your calendar under 60 seconds.<br/>
+          2. <b>External:</b> Your entities become indexable across LLM search engines (e.g., ChatGPT Search), capturing top-tier recommendation visibility.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+        <div class="text-xs font-mono text-purple-400 mb-2">STAGE 03 // RESILIENCE (after 3 month)</div>
+        <h4 class="text-lg font-bold text-white mb-2">Full L3 Self-Healing Network</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <b>Long-Term Commercial ROI:</b> <br/>
+          The system masters your rigid business facts. Even during major external API blackouts, workflows resume seamlessly without data loss. Continuous Telemetry logic sharpens cognitive routing, slashing your overall CAC.
+        </p>
+      </div>
+    </div>
+
+    <!-- WhatsApp CTA Button -->
+    <div class="mt-16 text-center bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-indigo-500/20 rounded-3xl p-8 md:p-12">
+      <h3 class="text-xl md:text-2xl font-bold mb-4">Ready to Infuse Enterprise Resilience into Your AI Operations?</h3>
+      <p class="text-gray-400 text-sm max-w-xl mx-auto mb-6">Click below to connect via WhatsApp and book your 15-minute architectural alignment consultation. We will analyze your workflows and hand over a complimentary AI Ingestion Blueprint.</p>
+      <a href={whatsappUrlEn} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-black bg-white rounded-xl hover:bg-slate-200 transition duration-200">
+        💬 Book 15-Min Tech Consult via WhatsApp →
+      </a>
+    </div>
+  </div>
+)}
