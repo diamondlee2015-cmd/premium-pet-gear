@@ -1,0 +1,101 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { getCollection } from 'astro:content';
+
+const metadata = {
+  title: 'Premium Wholesale Directory | Global Export Supply Chain',
+  ignoreTitleTemplate: true,
+};
+
+// 1. 自动获取全部生成的 product 物理文件
+const allProducts = await getCollection('products');
+
+// 2. 🌟 核心规范化逻辑：动态按类目对产品进行归类分组（彻底消灭硬编码）
+const categorizedProducts = allProducts.reduce((acc, product) => {
+  const cat = product.data.category || 'uncategorized';
+  if (!acc[cat]) acc[cat] = [];
+  acc[cat].push(product);
+  return acc;
+}, {} as Record<string, typeof allProducts>);
+
+// 3. 辅助函数：把类目 slug（如 cat-litter-and-pans）转换为美观的排版标题
+const formatCategoryTitle = (slug: string) => {
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero ... />
+
+  <section id="directory" class="bg-slate-50 dark:bg-slate-900/30 py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Official Product Directories</h2>
+        <p class="text-muted text-xl dark:text-slate-400">Strictly sourced from our vetted export compliance catalog.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Object.entries(categorizedProducts).map(([categorySlug, products]) => (
+          <div class="bg-white dark:bg-slate-900 p-8 rounded-xl border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between min-h-[380px]">
+            <div>
+              <div class="flex items-center space-x-3 mb-4">
+                <span class="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+                </span>
+                <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {formatCategoryTitle(categorySlug)}
+                </h3>
+              </div>
+
+              <ul class="space-y-2.5 text-sm text-gray-600 dark:text-slate-400 border-l-2 border-gray-100 dark:border-slate-800 pl-4">
+                {products.slice(0, 4).map((product) => (
+                  <li>
+                    <a href={`/products/${product.slug}`} class="hover:text-primary dark:hover:text-accent hover:underline transition-colors block line-clamp-1">
+                      • {product.data.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-50 dark:border-slate-800/60 flex items-center justify-between text-xs text-muted">
+              <span class="font-mono text-[11px]">Count: {products.length} Items</span>
+              <a href={`/categories/${categorySlug}`} class="font-bold text-primary dark:text-accent hover:underline flex items-center tracking-wider uppercase text-[11px]">
+                View Directory →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+<div class="fixed bottom-6 right-6 z-[999] flex items-center justify-center">
+  <span class="absolute inline-flex h-14 w-14 animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+  
+  <a 
+    href="https://wa.me/6590234708?text=Hello,%20I%20am%20reviewing%20your%20Premium%20Pet%20Products%20Directory%20and%20would%20like%20to%20request%20a%20container-load%20FOB%20quotation." 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xl hover:bg-emerald-600 transition-all duration-300 hover:scale-110 group"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+      <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+    </svg>
+    
+    <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none">
+      Contact Wholesale Desk
+    </span>
+  </a>
+</div>
+  </Layout>

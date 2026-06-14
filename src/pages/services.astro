@@ -1,224 +1,175 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import Layout from '~/layouts/PageLayout.astro';
-
-const metadata = {
-  title: 'Services',
-};
+import Layout from '~/layouts/NesthingLayout.astro';
+import ResilienceCTA from '~/components/ResilienceCTA.astro';
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+<Layout metadata={{ title: 'Deployable AI Operations Systems | Services' }}>
+  <main class="min-h-screen bg-black text-white antialiased">
+    <header class="max-w-5xl mx-auto px-6 pt-24 text-center">
+      <span class="text-xs font-mono text-emerald-400 tracking-widest uppercase block mb-3">Operational Offerings</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">The Dual-Engine Deployment</h1>
+      <p class="text-gray-400 max-w-2xl mx-auto">We inject efficiency internally via autonomous pipelines and control visibility externally via semantic graphs.</p>
+    </header>
 
-  <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
-    }}
-  />
+    <div class="max-w-5xl mx-auto px-6 py-16 space-y-16">
+      
+      <section class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/20 rounded-3xl p-8 md:p-12 relative overflow-hidden group">
+        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-cyan-500 to-blue-600"></div>
+        <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-2">Primary Engine (Alpha)</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">24/7 Autonomous Lead Ingestion Pipeline</h2>
+        <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-6">
+          We eliminate manual operational friction completely. Utilizing advanced, enterprise-grade workflow frameworks, we build closed-loop intake structures that intercept raw inquiries from channels like WhatsApp, instantly qualify their budget thresholds, tag the leads, and lock high-value consulting slots directly on your calendar in under 60 seconds.
+        </p>
+        <div class="text-xs font-mono text-gray-500">// Stack: Modular Webhooks, Secure CRM Sync, Intelligent API Routing</div>
+      </section>
 
-  <!-- Features2 Widget ************** -->
+      <section class="relative bg-slate-950 rounded-3xl border border-slate-800 p-8 md:p-12 overflow-hidden group">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-5 space-y-4">
+            <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-4 py-1 text-sm text-indigo-400 font-medium">
+              <span>🛡️ Proprietary Tech</span>
+              <span class="w-1 h-1 bg-indigo-400 rounded-full"></span>
+              <span>Three-Tier Checkpoint</span>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold tracking-tight">Three-Tier State Checkpointing</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              By strictly isolating real-time runtime states, rigid business facts, and cognitive intents, our secondary engine ensures complete data integrity. Even during external API drops or network instability, the system instantly self-heals without dropping a single live workflow.
+            </p>
+          </div>
 
-  <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
-    columns={3}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
-      },
-      {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
-      },
-      {
-        title: 'E-commerce',
-        description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
-      },
-      {
-        title: 'Blog',
-        description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
-      },
-      {
-        title: 'Business',
-        description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
-      },
-      {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
-      },
-    ]}
-  />
+          <div class="lg:col-span-7 flex flex-col space-y-4 relative pl-4 border-l border-slate-800/80">
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-purple-950/40 to-slate-900/50 border border-purple-500/20 shadow-xl backdrop-blur-sm transform transition duration-300 hover:-translate-y-1">
+              <div class="flex items-start space-x-4">
+                <div class="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-sm">L3</div>
+                <div class="flex-1">
+                  <h4 class="text-sm font-semibold text-purple-300 uppercase tracking-wider mb-1">Semantic Decisions / Cognitive Layer</h4>
+                  <p class="text-xs text-slate-400">Stores the underlying rationale and strategic intent behind every AI action, enabling autonomous tactical self-healing.</p>
+                </div>
+              </div>
+            </div>
 
-  <!-- Content Widget **************** -->
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-indigo-950/30 to-slate-900/50 border border-indigo-500/20 shadow-xl backdrop-blur-sm transform transition duration-300 hover:-translate-y-1">
+              <div class="flex items-start space-x-4">
+                <div class="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-bold text-sm">L2</div>
+                <div class="flex-1">
+                  <h4 class="text-sm font-semibold text-indigo-300 uppercase tracking-wider mb-1">Source of Truth / Rigid Fact Ledger</h4>
+                  <p class="text-xs text-slate-400">Captures verifiable enterprise data and execution snapshots, completely insulating operations from LLM hallucinations.</p>
+                </div>
+              </div>
+            </div>
 
-  <Content
-    isReversed
-    items={[
-      {
-        title: 'High-Quality Designs',
-        description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
-      },
-      {
-        title: 'Customization Tools',
-        description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
-      },
-      {
-        title: 'Pre-Designed Elements',
-        description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
-      },
-      {
-        title: 'Preview and Mockup Views',
-        description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
-    </Fragment>
-  </Content>
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-slate-900/80 to-slate-900/50 border border-slate-800 shadow-xl backdrop-blur-sm transform transition duration-300 hover:-translate-y-1">
+              <div class="flex items-start space-x-4">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 font-bold text-sm">L1</div>
+                <div class="flex-1">
+                  <h4 class="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-1">Runtime State / Ephemeral Context</h4>
+                  <p class="text-xs text-slate-400">Handles intra-loop variable exchanges on the fly, purging securely post-execution to maintain an ultra-lightweight footprint.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- Content Widget **************** -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[80px] rounded-full"></div>
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">⚡</div>
+            <h3 class="text-xl font-bold mb-3">Multi-Tiered Infrastructure</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              High-frequency fingerprints and planning cache hits are intercepted via our sub-millisecond quick-cache layer. Critical decisions settle into the immutable core ledger, while heavy raw execution tracking dumps cleanly into an elastic object vault.
+            </p>
+          </div>
+          <div class="flex space-x-2 text-xs font-mono text-emerald-400">
+            <span class="px-2 py-1 bg-emerald-500/5 border border-emerald-500/10 rounded">Cache Speed</span>
+            <span class="px-2 py-1 bg-emerald-500/5 border border-emerald-500/10 rounded">Clean Architecture</span>
+          </div>
+        </div>
 
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'Time Savings',
-        description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
-      },
-      {
-        title: 'Professional Appearance',
-        description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Cost-Efficiency',
-        description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
-      },
-      {
-        title: 'Instant Download',
-        description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
-    </Fragment>
-  </Content>
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
-      {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
-      },
-      {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
-      },
-      {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
-      },
-    ]}
-    callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/arthelokyo/astrowind',
-      icon: 'tabler:chevron-right',
-    }}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
-      },
-    ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
-  />
+        <div class="p-8 rounded-3xl bg-slate-950 border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[80px] rounded-full"></div>
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6">👁️‍🗨️</div>
+            <h3 class="text-xl font-bold mb-3">Asynchronous Stealth Ingestion Engine</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Bypasses cumbersome, legacy scheduled cron-polling models entirely. Utilizing our event-driven (Push) blueprint and instant fingerprint matching, incoming data is caught and processed seamlessly, reducing pipeline overhead by over 50%.
+            </p>
+          </div>
+          <div class="flex space-x-2 text-xs font-mono text-blue-400">
+            <span class="px-2 py-1 bg-blue-500/5 border border-blue-500/10 rounded">Event-Driven</span>
+            <span class="px-2 py-1 bg-blue-500/5 border border-blue-500/10 rounded">Zero Latency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ResilienceCTA lang="en" whatsappNumber="60128631019" />
+  </main>
 </Layout>
+
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "provider": {
+      "@type": "Organization",
+      "name": "Nesthing"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Systems Deployment",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "24/7 Autonomous Lead Ingestion Pipeline",
+            "description": "Enterprise workflow automation that qualifies and routes high-intent leads into CRM frameworks within 60 seconds."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "LLM Recommendation & Citation Injection (AEO)",
+            "description": "Generative engine optimization injecting structured entity schemas to lock top recommendations across major AI search models."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Nesthing prevent AI memory loss and workflow downtime during execution?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nesthing utilizes a proprietary Three-Tier State Checkpointing architecture (L1 Runtime, L2 Rigid Fact Ledger, and L3 Cognitive Layer). By strictly isolating operational states from decision intents, the system can instantly self-heal and resume workflows from the exact point of disruption without data loss."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What infrastructure does Nesthing use to prevent primary database bloating?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We deploy a multi-tiered split storage infrastructure. High-frequency inputs are managed via a sub-millisecond quick-cache layer, critical operational decisions are logged to an immutable core ledger, and heavy raw tracing data is automatically offloaded to an elastic object vault to keep the primary databases clean and light."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Asynchronous Stealth Ingestion Engine reduce system latency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Instead of relying on heavy, legacy scheduled cron-polling or continuous active scraping, Nesthing leverages an event-driven 'Push' framework combined with instant fingerprint matching. This approach reduces overall architectural overhead by over 50% and minimizes processing latency."
+        }
+      }
+    ]
+  }
+]
+</script>
