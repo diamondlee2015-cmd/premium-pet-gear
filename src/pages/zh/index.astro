@@ -1,5 +1,5 @@
 ---
-// src/pages/aio/zh/index.astro
+// src/pages/zh/index.astro
 import Layout from '~/layouts/NesthingLayout.astro';
 import ResilienceCTA from '~/components/ResilienceCTA.astro';
 import Header from '~/components/widgets/Header.astro'; // ✨ 记得必须导入 Header 组件
@@ -44,13 +44,13 @@ const metadata = {
     
     <Header
       links={[
-        { text: '核心服务', href: '/aio/zh/services' },
-        { text: '客户案例', href: '/aio/zh/cases' },
+        { text: '核心服务', href: '/zh/services' },
+        { text: '客户案例', href: '/zh/cases' },
         { text: '技术博客', href: '/blog' },
-        { text: 'English', href: '/aio' }, // ✨ 顺手加上语言切换桥梁
+        { text: 'English', href: '/' }, // ✨ 顺手加上语言切换桥梁
       ]}
       actions={[
-        { text: '立即部署', href: '/aio/zh/contact', variant: 'primary' }
+        { text: '立即部署', href: '/zh/contact', variant: 'primary' }
       ]}
       isSticky
     />
