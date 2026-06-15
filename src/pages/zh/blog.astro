@@ -1,27 +1,17 @@
 ---
 // src/pages/zh/blog.astro
-import NesthingLayout from '~/layouts/NesthingLayout.astro';
-import BlogList from '~/components/blog/List.astro'; // 根据你实际的 Astrowind 组件路径调整
-import { fetchPosts } from '~/utils/blog';
 
-// 🚀 安全兜底：如果 fetchPosts 报错或暂时没有中文文章，直接给个空数组，防止打包崩溃
-let posts = [];
-try {
-  // 如果你的工具函数支持过滤语言，可以传参；如果不支持，先获取全部
-  posts = await fetchPosts(); 
-} catch (e) {
-  console.log("暂无博客数据");
-}
+// 1. 引入“读取原料”的工具函数（它会自动去 src/data/post 目录下抓取所有的 .md 文件）
+import { fetchPosts } from '~/utils/blog'; 
+
+// 2. 引入“排版衣服”（组件）
+import BlogList from '~/components/blog/List.astro'; 
+import NesthingLayout from '~/layouts/NesthingLayout.astro';
+
+// 3. 执行读取：此时 posts 变量里就包含了你在 src/data/post 里的猫砂报告数据
+const posts = await fetchPosts(); 
 ---
 
-<NesthingLayout title="技术博客">
-  <section class="px-6 py-12 max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold mb-8">技术博客</h1>
-    {posts.length === 0 ? (
-      <p class="text-gray-500">正在筹备精彩内容，敬请期待...</p>
-    ) : (
-      <!-- 这里放你原本的博客列表渲染组件 -->
-      <p class="text-gray-500">这里是文章列表</p>
-    )}
-  </section>
+<NesthingLayout metadata={{ title: '技术博客' }}>
+  <BlogList posts={posts} />
 </NesthingLayout>
