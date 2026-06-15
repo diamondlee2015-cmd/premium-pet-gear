@@ -115,3 +115,14 @@
 .dd *:first-child {
   margin-top: 0;
 }
+/* 🛑 强行锁死全站横向溢出，防止移动端左右晃动，让 fixed 定位回归屏幕右边缘 */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* 如果有使用了 View Transitions，也顺便对它的容器进行锁死 */
+::view-transition-group(*) {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
