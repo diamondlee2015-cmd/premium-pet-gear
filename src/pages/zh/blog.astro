@@ -1,15 +1,18 @@
 ---
 // src/pages/zh/blog.astro
 
-// 1. 引入“读取原料”的工具函数（它会自动去 src/data/post 目录下抓取所有的 .md 文件）
+// 1. 引入“读取原料”的工具函数
 import { fetchPosts } from '~/utils/blog'; 
 
-// 2. 引入“排版衣服”（组件）
+// 2. 引入布局和排版组件
 import BlogList from '~/components/blog/List.astro'; 
 import NesthingLayout from '~/layouts/NesthingLayout.astro';
 
-// 3. 执行读取：此时 posts 变量里就包含了你在 src/data/post 里的猫砂报告数据
-const posts = await fetchPosts(); 
+// 3. 先把所有的原始文章抓出来，命名为 allPosts
+const allPosts = await fetchPosts(); 
+
+// 4. 过滤：只保留以 'zh/' 开头的中文文章，命名为 posts 喂给组件
+const posts = allPosts.filter(post => post.slug.startsWith('zh/'));
 ---
 
 <NesthingLayout metadata={{ title: '技术博客' }}>
