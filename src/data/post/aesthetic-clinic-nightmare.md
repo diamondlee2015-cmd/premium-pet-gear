@@ -3,7 +3,7 @@ publishDate: 2026-06-01
 slug: "kl-aesthetic-clinic-whatsapp-ai-agent"
 title: "Kuala Lumpur's Aesthetic Clinic Nightmare: How AI Agents Rescue Late-Night Disappearing WhatsApp Leads"
 excerpt: "Premium aesthetic clinics in KL and JB bleed high-value leads between 11 PM and 8 AM due to delayed responses. Discover how an on-premise AI agent built with n8n, Ollama, and Qdrant plugs this leak while ensuring strict PDPA compliance."
-image: "~/assets/images/posts/kl-aesthetic-clinic-whatsapp-ai-agent.webp"
+image: "~/assets/images/kl-aesthetic-clinic-whatsapp-ai-agent.webp"
 category: "Enterprise AI"
 tags:
   - Agentic Workflow
