@@ -1,39 +1,37 @@
 ---
 // src/pages/zh/index.astro
-// 📦 借用刚刚魔改加固、自带超高层级悬浮按钮和返回顶部引擎的专属布局
+// 📦 1. 扔掉重复的 Layout 定义，直接引入我们加固过的全局核心布局
 import NesthingLayout from '~/layouts/NesthingLayout.astro';
 
-// 🚀 这里引入你中文大首页真正需要展示的内容组件（例如大马猫砂、AI自动化服务等组件）
-import Hero2 from '~/components/widgets/Hero2.astro';
-import Features from '~/components/widgets/Features.astro';
-import Content from '~/components/widgets/Content.astro';
+// 🚀 2. 引入你中文首页内容真正需要的一一对应的组件
+// （请根据你英文首页实际上用了哪些组件，在这里精准引入中文版组件，比如 Hero、Features、Content 等）
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 const metadata = {
-  title: 'Nesthing | 智能自动化与 GEO 架构解决方案',
+  title: 'Nesthing | Agentic Workflow & GEO Architecture',
   ignoreTitleTemplate: true,
 };
 ---
 
 <NesthingLayout metadata={metadata}>
   
-  <Hero2
-    tagline="大马首家 AI 驱动可见性架构"
-    title="当高净值客户在 ChatGPT 搜索你的品牌"
-    subtitle="我们部署自主运行的 AI Agent，拦截流量流失，提升全网大模型（ChatGPT/Google GEO）中的品牌曝光率。"
+  <Hero
     actions={[
-      { variant: 'primary', text: '立即免费审计', href: '/zh/contact', icon: 'tabler:download' },
-      { text: '了解核心服务', href: '/zh/services' },
+      { variant: 'primary', text: 'Deploy Now', href: '/zh/contact' },
+      { text: 'Learn More', href: '#features' },
     ]}
-  />
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Nesthing Hero Image' }}
+  >
+    <fragment slot="title">
+      当高净值客户在 ChatGPT 搜索最佳服务时...
+    </fragment>
 
-  <Features
-    id="features"
-    tagline="核心优势"
-    title="为什么选择 Nesthing 智能交付"
-    items={[
-      { title: ' Medicine 3.0 与健康科技深耕', description: '深度理解跨境大健康与本地医疗中心的数字化痛点，提供精准合规的 AI 录入方案。' },
-      { title: '全网生成式引擎优化 (GEO)', description: '打破传统 SEO 限制，让你的品牌直接出现在大模型的最优推荐答案中。' },
-    ]}
-  />
+    <fragment slot="subtitle">
+      我们部署自主运行的业务 Agent，拦截流量流失，自动化用户行为，并提升品牌在各大生成式 AI 引擎（GEO）中的推荐权重。
+    </fragment>
+  </Hero>
 
-</NesthingLayout>
+  </NesthingLayout>
