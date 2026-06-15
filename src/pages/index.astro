@@ -1,5 +1,5 @@
 ---
-// src/pages/aio/index.astro
+// src/pages/index.astro (原 src/pages/aio/index.astro)
 import Layout from '~/layouts/NesthingLayout.astro';
 import ResilienceCTA from '~/components/ResilienceCTA.astro';
 
@@ -39,6 +39,7 @@ const metadata = {
   ]
 }
 </script>
+
 <Layout metadata={metadata}>
   <style is:global>
     :root {
@@ -70,31 +71,22 @@ const metadata = {
     }
   </style>
 
-  <!-- 页面根容器 -->
   <div class="bg-[var(--color-linear-bg)] text-[var(--color-text-primary)] min-h-screen antialiased select-none font-sans relative pb-24">
     
-    <!-- 🟢 1. HEADER (Fully Integrated Language Switcher) -->
-    <nav class="border-b border-[var(--color-linear-border)] bg-[var(--color-linear-bg)]/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
-      <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <a href="/aio" class="font-bold text-lg tracking-tight text-white flex items-center gap-2">
-          <span class="text-[var(--color-linear-purple)]">◆</span> Nesthing
-        </a>
-        <div class="flex items-center gap-6 text-sm font-medium text-[var(--color-text-muted)]">
-          <a href="/blog" class="hover:text-white transition">Blog</a>
-          <a href="/contact" class="hover:text-white transition">Contact</a>
-          
-          <!-- 🇨🇳 / 🇺🇸 Language Switcher -->
-          <div class="flex items-center gap-1.5 bg-white/5 border border-[var(--color-linear-border)] rounded-full px-2.5 py-1 text-xs">
-            <span class="text-white font-bold px-1.5 py-0.5 rounded-full bg-[var(--color-linear-purple)]/30">EN</span>
-            <span class="text-gray-600">/</span>
-            <a href="/aio/zh" class="hover:text-white transition px-1.5 py-0.5">中文</a>
-          </div>
+    <div class="max-w-6xl mx-auto flex justify-end items-center px-6 pt-6">
+      <div class="flex items-center gap-6 text-sm font-medium text-[var(--color-text-muted)]">
+        <a href="/blog" class="hover:text-white transition">Blog</a>
+        <a href="/contact" class="hover:text-white transition">Contact</a>
+        
+        <div class="flex items-center gap-1.5 bg-white/5 border border-[var(--color-linear-border)] rounded-full px-2.5 py-1 text-xs">
+          <span class="text-white font-bold px-1.5 py-0.5 rounded-full bg-[var(--color-linear-purple)]/30">EN</span>
+          <span class="text-gray-600">/</span>
+          <a href="/zh" class="hover:text-white transition px-1.5 py-0.5">中文</a>
         </div>
       </div>
-    </nav>
+    </div>
 
-    <!-- 🌟 2. HERO AREA (With Ambient Glow & Responsive Hero Image) -->
-    <div class="max-w-6xl mx-auto px-6 pt-24 pb-16 text-center linear-glow">
+    <div class="max-w-6xl mx-auto px-6 pt-16 pb-16 text-center linear-glow">
       <span class="relative z-10 inline-block text-[11px] font-semibold tracking-widest text-[var(--color-linear-purple)] uppercase bg-[var(--color-linear-purple)]/10 px-3 py-1 rounded-full border border-[var(--color-linear-purple)]/20">
         Agentic Workflow & GEO Architecture
       </span>
@@ -110,12 +102,8 @@ const metadata = {
         Stop losing high-ticket clients to algorithmic blind spots. We deploy autonomous operational engines that intercept leakage, automate intake, and force AI engines to recommend your brand.
       </p>
 
-      <!-- 📸 完全对齐 Linear 质感的产品图展示区（像素隔离与全设备自适应） -->
       <div class="relative max-w-5xl mx-auto my-16 rounded-2xl border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 p-2 shadow-[0_0_50px_rgba(0,0,0,0.8),_inset_0_1px_20px_rgba(255,255,255,0.05)] backdrop-blur-sm group overflow-hidden">
-        <!-- 内层包装器：控制电脑端大宽屏，手机端自动按比例缩小 -->
         <div class="w-full aspect-[16/10] md:aspect-[16/9] bg-gradient-to-b from-slate-900 to-[#000212] rounded-xl overflow-hidden relative">
-          
-          <!-- 💡 核心：你只需要准备一张高分辨率（推荐 2880x1800 像素，WebP 格式）的系统运行截图贴在下面 -->
           <img 
             src="/images/hero-flow.webp" 
             alt="AIO Shield Agentic Workflow Architecture Dashboard" 
@@ -123,97 +111,72 @@ const metadata = {
             loading="eager"
             decoding="async"
           />
-          
-          <!-- 底部渐变遮罩：让图片无缝融入墨黑底色，营造阴影悬浮高级感 -->
           <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-linear-bg)] via-transparent to-transparent opacity-90 pointer-events-none"></div>
         </div>
       </div>
     </div>
-<div class="max-w-5xl mx-auto px-6 py-20 border-t border-[var(--color-linear-border)]">
-  <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight text-white">
-    The Problem: Algorithmic Leakage & Operational Friction
-  </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 rounded-2xl p-8 hover:bg-[var(--color-linear-card)]/60 transition-colors duration-300">
-      <h3 class="text-xl font-bold text-white mb-3">The Traffic Black Hole</h3>
-      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-        Traditional SEO brings clicks, but ChatGPT & Google AI Overviews intercept users <strong class="text-white">before</strong> they click. If you aren't cited inside the AI answer, you don't exist.
-      </p>
-    </div>
-    <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 rounded-2xl p-8 hover:bg-[var(--color-linear-card)]/60 transition-colors duration-300">
-      <h3 class="text-xl font-bold text-white mb-3">The Conversion Leakage</h3>
-      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-        High-value prospective clients query your services at 11 PM. Manual screening delays response by 12 hours. By morning, they have already booked a competitor.
-      </p>
-    </div>
-  </div>
-</div>
 
-<div class="max-w-5xl mx-auto px-6 pb-20">
-  <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight text-white">
-    The Core Solution: The Dual-Engine Framework
-  </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="border border-[var(--color-linear-border)] bg-gradient-to-b from-[var(--color-linear-card)]/80 to-transparent rounded-2xl p-8 relative overflow-hidden">
-      <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-400 to-cyan-500"></div>
-      <div class="text-xs font-mono text-cyan-400 mb-3 tracking-widest uppercase">Engine Alpha</div>
-      <h3 class="text-2xl font-bold text-white mb-4">24/7 Autonomous Intake Pipeline</h3>
-      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-        Instantly qualify, tag, and route high-intent leads into your CRM or WhatsApp within 60 seconds—without adding headcount.
-      </p>
-    </div>
-    <div class="border border-[var(--color-linear-border)] bg-gradient-to-b from-[var(--color-linear-card)]/80 to-transparent rounded-2xl p-8 relative overflow-hidden">
-      <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 to-pink-500"></div>
-      <div class="text-xs font-mono text-purple-400 mb-3 tracking-widest uppercase">Engine Beta</div>
-      <h3 class="text-2xl font-bold text-white mb-4">LLM Recommendation & Citation Shield</h3>
-      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-        Inject high-authority semantic schema into knowledge graphs to guarantee your firm appears as the top recommendation in SearchGPT, Perplexity, and Gemini.
-      </p>
-    </div>
-  </div>
-</div>
-    <!-- ❓ 3. HARDCORE B2B FAQs -->
-    <div class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-linear-border)]">
-  <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight text-white">Engine Specifications & FAQs</h2>
-  <div class="space-y-4">
-    
-    <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
-      <h3 class="text-base font-bold text-white mb-2">Q: Why does ChatGPT recommend my competitors instead of my firm/clinic?</h3>
-      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: LLMs rely on vector database cluster nodes. If your business lacks structured JSON-LD entity schema and high-authority RAG anchor references, AI search engines will bypass your brand. Our Engine Beta injects this exact architecture to force citations.</p>
-    </div>
-
-    <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
-      <h3 class="text-base font-bold text-white mb-2">Q: How does Engine Alpha improve my WhatsApp lead conversion?</h3>
-      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: Traditional inquiries wait hours for human response. Engine Alpha utilizes an autonomous n8n workflow to intercept leads 24/7, ask qualifying questions, tag the patient/client, and route the precise context directly to your WhatsApp in under 60 seconds.</p>
-    </div>
-
-    <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
-      <h3 class="text-base font-bold text-white mb-2">Q: Can this counteract negative sector gossip or AI hallucinations?</h3>
-      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: Yes. LLMs generalize risks when authoritative data schema fields are left blank. By deploying our automated Agentic Workflow, we continuously monitor LLM API clusters and patch semantic information anomalies across high-weight indexes within 72 hours.</p>
-    </div>
-
-  </div>
-</div>
+    <div class="max-w-5xl mx-auto px-6 py-20 border-t border-[var(--color-linear-border)]">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight text-white">
+        The Problem: Algorithmic Leakage & Operational Friction
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 rounded-2xl p-8 hover:bg-[var(--color-linear-card)]/60 transition-colors duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">The Traffic Black Hole</h3>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            Traditional SEO brings clicks, but ChatGPT & Google AI Overviews intercept users <strong class="text-white">before</strong> they click. If you aren't cited inside the AI answer, you don't exist.
+          </p>
+        </div>
+        <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 rounded-2xl p-8 hover:bg-[var(--color-linear-card)]/60 transition-colors duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">The Conversion Leakage</h3>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            High-value prospective clients query your services at 11 PM. Manual screening delays response by 12 hours. By morning, they have already booked a competitor.
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- 💬 4. FLOATING WHATSAPP BUTTON (Perfectly styled for Dark Mode) -->
-    <a 
-      href="https://wa.me/+60128631019?text=I%20need%20a%20complimentary%20AI%20Visibility%20Audit%20Report." 
-      target="_blank" 
-      rel="noopener noreferrer"
-      class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:bg-[#20ba5a] transition-all duration-300 hover:scale-110 active:scale-95 group"
-      aria-label="Contact on WhatsApp"
-    >
-      <!-- WhatsApp SVG Icon -->
-      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.008c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-      </svg>
-      <!-- 提示气泡，只在电脑端鼠标悬浮时展示 -->
-      <span class="absolute right-16 scale-0 group-hover:scale-100 transition-all bg-[var(--color-linear-card)] border border-[var(--color-linear-border)] text-[var(--color-text-primary)] text-xs font-mono px-3 py-1.5 rounded-lg whitespace-nowrap shadow-xl">
-        WhatsApp An Engineer
-      </span>
-    </a>
+    <div class="max-w-5xl mx-auto px-6 pb-20">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight text-white">
+        The Core Solution: The Dual-Engine Framework
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border border-[var(--color-linear-border)] bg-gradient-to-b from-[var(--color-linear-card)]/80 to-transparent rounded-2xl p-8 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-400 to-cyan-500"></div>
+          <div class="text-xs font-mono text-cyan-400 mb-3 tracking-widest uppercase">Engine Alpha</div>
+          <h3 class="text-2xl font-bold text-white mb-4">24/7 Autonomous Intake Pipeline</h3>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            Instantly qualify, tag, and route high-intent leads into your CRM or WhatsApp within 60 seconds—without adding headcount.
+          </p>
+        </div>
+        <div class="border border-[var(--color-linear-border)] bg-gradient-to-b from-[var(--color-linear-card)]/80 to-transparent rounded-2xl p-8 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 to-pink-500"></div>
+          <div class="text-xs font-mono text-purple-400 mb-3 tracking-widest uppercase">Engine Beta</div>
+          <h3 class="text-2xl font-bold text-white mb-4">LLM Recommendation & Citation Shield</h3>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            Inject high-authority semantic schema into knowledge graphs to guarantee your firm appears as the top recommendation in SearchGPT, Perplexity, and Gemini.
+          </p>
+        </div>
+      </div>
+    </div>
 
-  </div>
+    <div class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-linear-border)]">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight text-white">Engine Specifications & FAQs</h2>
+      <div class="space-y-4">
+        <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
+          <h3 class="text-base font-bold text-white mb-2">Q: Why does ChatGPT recommend my competitors instead of my firm/clinic?</h3>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: LLMs rely on vector database cluster nodes. If your business lacks structured JSON-LD entity schema and high-authority RAG anchor references, AI search engines will bypass your brand. Our Engine Beta injects this exact architecture to force citations.</p>
+        </div>
+        <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
+          <h3 class="text-base font-bold text-white mb-2">Q: How does Engine Alpha improve my WhatsApp lead conversion?</h3>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: Traditional inquiries wait hours for human response. Engine Alpha utilizes an autonomous n8n workflow to intercept leads 24/7, ask qualifying questions, tag the patient/client, and route the precise context directly to your WhatsApp in under 60 seconds.</p>
+        </div>
+        <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
+          <h3 class="text-base font-bold text-white mb-2">Q: Can this counteract negative sector gossip or AI hallucinations?</h3>
+          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: Yes. LLMs generalize risks when authoritative data schema fields are left blank. By deploying our automated Agentic Workflow, we continuously monitor LLM API clusters and patch semantic information anomalies across high-weight indexes within 72 hours.</p>
+        </div>
+      </div>
+    </div>
+
+    </div>
 </Layout>
