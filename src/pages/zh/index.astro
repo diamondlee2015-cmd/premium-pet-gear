@@ -1,104 +1,131 @@
 ---
-// src/pages/zh/index.astro
-import Layout from '~/layouts/NesthingLayout.astro';
-import ResilienceCTA from '~/components/ResilienceCTA.astro';
+// src/layouts/NesthingLayout.astro
+import PageLayout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro'; 
 
-// ✂️ 删去了多余的 Header 组件导入，交由全局 NesthingLayout 自动打通
+// 📦 安全引入页脚
+import * as navigationData from '~/navigation';
 
-const metadata = {
-  title: 'AIO 智能拦截系统 & GEO 生成引擎优化 | Nesthing',
-};
+const { metadata } = Astro.props;
+
+// 🧠 核心逻辑：自动感知中英文
+const currentUrl = Astro.url.pathname;
+const isZh = currentUrl.includes('/zh/') || currentUrl.endsWith('/zh');
+
+const homeUrl = isZh ? '/zh' : '/';
+
+const defaultFooter = navigationData.footerData || {};
+const defaultFooterZh = navigationData.footerDataZh || navigationData.footerData || {};
+const currentFooterData = isZh ? defaultFooterZh : defaultFooter;
+
+// 🎯 动态分流菜单
+const links = isZh
+  ? [
+      { text: '核心服务', href: '/zh/services' },
+      { text: '客户案例', href: '/zh/cases' },
+      { text: '技术博客', href: '/blog' }, 
+      { text: 'English', href: '/' },       
+    ]
+  : [
+      { text: 'Our Service', href: '/services' },
+      { text: 'Case Study', href: '/cases' },
+      { text: 'Blog', href: '/blog' },
+      { text: '中文', href: '/zh' },          
+    ];
+
+const actions = isZh 
+  ? [{ text: '立即部署', href: '/zh/contact', variant: 'primary' }]
+  : [{ text: 'Deploy Now', href: '/contact', variant: 'primary' }];
+
+// 🧠 WhatsApp 文案
+const whatsappTooltip = isZh ? '在线接入技术工程师' : 'WhatsApp An Engineer';
+const whatsappText = isZh ? '我需要一份免费的%20AI%20可见性审计报告。' : 'I%20need%20a%20complimentary%20AI%20Visibility%20Audit%20Report.';
 ---
 
-<Layout metadata={metadata}>
-  <style is:global>
-    :root {
-      --color-linear-bg: #000212;
-      --color-linear-card: #0b0d19;
-      --color-linear-border: #1f2438;
-      --color-linear-purple: #5e6ad2;
-      --color-linear-green: #10b981;
-      --color-text-primary: #f7f8f8;
-      --color-text-muted: #b4bcd0;
-    }
-    
-    /* 模拟 Linear 标志性的背景微弱环境光晕 */
-    .linear-glow {
-      position: relative;
-    }
-    .linear-glow::before {
-      content: "";
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(94,106,210,0.15) 0%, rgba(0,2,18,0) 70%);
-      border-radius: 50%;
-      z-index: 0;
-      pointer-events: none;
-    }
-  </style>
+<PageLayout metadata={metadata}>
+  <Header slot="header" homeUrl={homeUrl} links={links} actions={actions} isSticky />
+  
+  <slot />
 
-  <div class="bg-[var(--color-linear-bg)] text-[var(--color-text-primary)] min-h-screen antialiased select-none font-sans relative pb-24">
-    
-    <div class="max-w-6xl mx-auto flex justify-end items-center px-6 pt-6">
-      <div class="flex items-center gap-6 text-sm font-medium text-[var(--text-color-muted)] text-[var(--color-text-muted)]">
-        <a href="/zh/blog" class="hover:text-white transition">部落格</a>
-        <a href="/zh/contact" class="hover:text-white transition">联系我们</a>
-        
-        <div class="flex items-center gap-1.5 bg-white/5 border border-[var(--color-linear-border)] rounded-full px-2.5 py-1 text-xs">
-          <a href="/" class="hover:text-white transition px-1.5 py-0.5">EN</a>
-          <span class="text-gray-600">/</span>
-          <span class="text-white font-bold px-1.5 py-0.5 rounded-full bg-[var(--color-linear-purple)]/30">中文</span>
-        </div>
-      </div>
-    </div>
+  <Footer slot="footer" {...currentFooterData} />
 
-    <div class="max-w-6xl mx-auto px-6 pt-16 pb-16 text-center linear-glow">
-      <span class="relative z-10 inline-block text-[11px] font-semibold tracking-widest text-[var(--color-linear-purple)] uppercase bg-[var(--color-linear-purple)]/10 px-3 py-1 rounded-full border border-[var(--color-linear-purple)]/20">
-        智能体工作流 & GEO 生成引擎优化架构
+  <div id="global-floating-hub" class="hidden">
+    
+    <button
+      id="go-to-top"
+      style="z-index: 99999999 !important;"
+      class="fixed bottom-24 right-6 md:bottom-28 md:right-8 flex items-center justify-center w-12 h-12 bg-[#1f2438] hover:bg-[#2f3756] text-white rounded-full border border-[#303654] shadow-2xl transition-all duration-300 translate-y-10 opacity-0 pointer-events-none scale-90 hover:scale-110 group cursor-pointer"
+      aria-label="Go to Top"
+    >
+      <svg class="w-5 h-5 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+      </svg>
+    </button>
+
+    <a 
+      id="global-whatsapp-btn"
+      href={`https://wa.me/+60128631019?text=${whatsappText}`}
+      target="_blank" 
+      rel="noopener noreferrer"
+      style="display: flex !important; visibility: visible !important; opacity: 1 !important; z-index: 99999999 !important;"
+      class="fixed bottom-6 right-6 md:bottom-8 md:right-8 items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:bg-[#20ba5a] transition-all duration-300 hover:scale-110 active:scale-95 group"
+      aria-label="Contact on WhatsApp"
+    >
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.008c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg>
+      <span class="absolute right-16 scale-0 md:group-hover:scale-100 transition-all bg-[#0b0d19] border border-[#1f2438] text-white text-xs font-mono px-3 py-1.5 rounded-lg whitespace-nowrap shadow-xl">
+        {whatsappTooltip}
       </span>
+    </a>
+
+  </div>
+
+  <script is:inline define:vars={{ whatsappTooltip }}>
+    function mountFloatingHub() {
+      // 1. 获取刚刚渲染的模板组件
+      const hub = document.getElementById('global-floating-hub');
+      if (!hub) return;
+
+      // 💥 降维打击：如果组件还在任何层级内部，直接强行拔起，塞到最纯净的 document.body 底部！
+      if (hub.parentElement !== document.body) {
+        document.body.appendChild(hub);
+        hub.classList.remove('hidden'); // 解锁显示
+      }
+
+      const topBtn = document.getElementById('go-to-top');
+      if (!topBtn) return;
+
+      // 清除旧的监听，防止重复绑定
+      window.removeEventListener('scroll', handleScroll);
       
-      <h1 class="relative z-10 text-4xl md:text-6xl font-extrabold tracking-tight text-white mt-6 mb-8 max-w-4xl mx-auto leading-[1.12]">
-        当高净值客户在 ChatGPT 上搜索您时，<br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-linear-purple)] to-[var(--color-linear-green)]">
-          AI 正在把您的同行推荐给他们。
-        </span>
-      </h1>
-      
-      <p class="relative z-10 text-lg md:text-xl text-[var(--color-text-muted)] max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-        传统广告因平台封禁与算法失效正在大面积停摆，企业资产正悄然被大模型（LLM）的检索偏见蚕食。我们在知识图谱底层，精准拦截并校准高客单价的 B2B 与专业服务意图。
-      </p>
+      function handleScroll() {
+        if (window.scrollY > 400) {
+          topBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10', 'scale-90');
+          topBtn.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+        } else {
+          topBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10', 'scale-90');
+          topBtn.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+        }
+      }
 
-      <div class="relative max-w-5xl mx-auto my-16 rounded-2xl border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/40 p-2 shadow-[0_0_50px_rgba(0,0,0,0.8),_inset_0_1px_20px_rgba(255,255,255,0.05)] backdrop-blur-sm group overflow-hidden">
-        <div class="w-full aspect-[16/10] md:aspect-[16/9] bg-gradient-to-b from-slate-900 to-[#000212] rounded-xl overflow-hidden relative">
-          <img 
-            src="/images/hero-flow.webp" 
-            alt="AIO Shield 智能体工作流架构控制台" 
-            class="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-            loading="eager"
-            decoding="async"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-linear-bg)] via-transparent to-transparent opacity-90 pointer-events-none"></div>
-        </div>
-      </div>
-    </div>
+      // 实时计算滚动高度
+      window.addEventListener('scroll', handleScroll);
 
-    <div class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-linear-border)]">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight text-white">内核技术指标 & 深度解答</h2>
-      <div class="space-y-4">
-        <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
-          <h3 class="text-base font-bold text-white mb-2">Q: 生成引擎优化（GEO）与传统的搜索引擎优化（SEO）有什么本质区别？</h3>
-          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: 传统的 SEO 操纵的是针对搜索爬虫的点击与关键词堆砌。AIO Shield 则是直接在 RAG（检索增强生成）框架内对实体节点关联进行深度重构，强制大模型将您的业务实体列为无可争议的第一推荐方案。</p>
-        </div>
-        <div class="border border-[var(--color-linear-border)] bg-[var(--color-linear-card)]/30 rounded-xl p-6">
-          <h3 class="text-base font-bold text-white mb-2">Q: 这套系统能否有效反制行业恶意抹黑或 AI 产生的幻觉？</h3>
-          <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">A: 可以。当高权重网站的权威结构化数据（Schema）字段留空时，大模型在检索时就会产生泛化风险甚至幻觉。通过强行注入高权重的加密网络索引，我们能在 72 小时内修复并覆盖大模型参数中的信息异常。</p>
-        </div>
-      </div>
-    </div>
+      // 返回顶部点击事件
+      topBtn.onclick = function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
+    }
 
-    </div>
-</Layout>
+    // 立即执行挂载
+    mountFloatingHub();
+    // 确保 Astro 路由切换或局部刷新时，按钮始终呆在 body 最外层
+    document.addEventListener('astro:after-swap', mountFloatingHub);
+    document.addEventListener('DOMContentLoaded', mountFloatingHub);
+  </script>
+</PageLayout>
