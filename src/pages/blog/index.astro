@@ -1,0 +1,25 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import { fetchPosts } from '~/utils/blog';
+
+export const prerender = true;
+
+// 1. 获取全量文章
+const allPosts = await fetchPosts(); 
+
+// 2. ⚡ 纯净英文过滤：只留下没有 'zh-' 前缀的纯英文博文
+const pureEnglishPosts = allPosts.filter(post => !post.slug.startsWith('zh-'));
+
+const metadata = {
+  title: 'Blog',
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <BlogList posts={pureEnglishPosts} /> 
+</Layout>
