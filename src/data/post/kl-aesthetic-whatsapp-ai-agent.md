@@ -1,5 +1,6 @@
 ---
 publishDate: 2026-06-15T00:00:00Z
+slug: “kl-aesthetic-whatsapp-ai-agent”
 title: "Kuala Lumpur's Aesthetic Clinic Nightmare: How AI Agents Rescue Late-Night Disappearing WhatsApp Leads"
 excerpt: "Premium medical aesthetic chains in KL and JB face a dual crisis of late-night WhatsApp lead leaks and PDPA data privacy issues. Discover how an on-premise AI agent built with n8n, Ollama, and Qdrant secures high-value leads with secure automated responses."
 image: "~/assets/images/posts/kl-aesthetic-whatsapp-ai-agent.webp"
