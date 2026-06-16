@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-06-01
-slug: "zh/kl-aesthetic-clinic-whatsapp-ai-agent"
+slug: "zh-kl-aesthetic-clinic-whatsapp-ai-agent"
 title: "吉隆坡医美诊所的深夜噩梦：AI Agent 如何拯救悄然流失的 WhatsApp 白领线索"
 excerpt: "吉隆坡与新山的顶尖医美诊所在深夜 11 点至清晨 8 点期间，因客服响应延迟正面临高净值线索的大量流失。本文将深度解析如何利用 n8n、Ollama 与 Qdrant 搭建本地私有化 AI Agent，在严守大马 PDPA 法规的前提下完美堵住这一收入漏洞。"
 image: "~/assets/images/kl-aesthetic-clinic-whatsapp-ai-agent.webp"

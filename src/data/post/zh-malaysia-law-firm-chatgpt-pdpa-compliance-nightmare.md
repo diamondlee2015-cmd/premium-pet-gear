@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-06-15T00:00:00Z
-slug: "malaysia-law-firm-chatgpt-pdpa-compliance-nightmare"
+slug: "zh-malaysia-law-firm-chatgpt-pdpa-compliance-nightmare"
 title: "马来西亚律师楼的“AI 禁区”：为什么处理 SPA 与 NDA 时，Web 版 ChatGPT 是你的合规噩梦？"
 excerpt: "大马律所合伙人盲目使用 Web 版 ChatGPT 审查 SPA 与 NDA 正在触犯 PDPA 红线。本文拆解如何利用 n8n、Ollama 与 Qdrant 缝合私有化 AI 智能体工作流，构建绝不泄密的本地法律大脑。"
 image: "~/assets/images/malaysia-law-firm-chatgpt-pdpa-compliance-nightmare.webp"
