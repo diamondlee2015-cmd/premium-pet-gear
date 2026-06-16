@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-06-15T00:00:00Z
 slug: "malaysia-law-firm-chatgpt-pdpa-compliance-nightmare"
-title: "Malaysia's Law Firm 'AI Forbidden Zone': Why Web-Based ChatGPT is Your Compliance Nightmare for SPAs and NDAs"
+title: "Malaysia's Law Firm [AI Forbidden Zone]: Why Web-Based ChatGPT is Your Compliance Nightmare for SPAs and NDAs"
 excerpt: "Pasting client Sale and Purchase Agreements (SPAs) or Non-Disclosure Agreements (NDAs) into web-based ChatGPT breaches Malaysia's PDPA. Discover how to build an unbreachable local AI fortress using n8n, Ollama, and Qdrant."
 image: "~/assets/images/malaysia-law-firm-chatgpt-pdpa-compliance-nightmare.webp"
 category: "Enterprise AI"

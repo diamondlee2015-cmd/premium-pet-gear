@@ -9,7 +9,7 @@ tags:
   - Agentic Workflow
   - Legal Tech
 metadata:
-  canonical: https://nesthing.com/malaysia-law-firm-chatgpt-pdpa-compliance-nightmare
+  canonical: https://nesthing.com/zh-malaysia-law-firm-chatgpt-pdpa-compliance-nightmare
 ---
 
 🚀 作为律师事务所的合伙人，您一定在追求法律科技（Legal Tech）带来的极致效率。处理堆积如山的法律卷宗、起草繁琐的条款，往往消耗了资深律师大量的时间。
