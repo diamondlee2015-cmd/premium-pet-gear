@@ -2,23 +2,19 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
-// ... 其他原有的 import 保持不动 ...
-
-import { fetchPosts } from '~/utils/blog'; // 框架自带的引入
+import { fetchPosts } from '~/utils/blog';
 
 export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
-  // 1. 框架原本在这里捞取所有文章
   const allPosts = await fetchPosts(); 
   
-  // 2. ⚡【在这里精准切入过滤逻辑】过滤掉所有中文文章，只留下英文文章给默认列表页
-  const englishPosts = allPosts.filter(post => !post.slug.startsWith('zh-'));
+  // ⚡ 核心锁死：默认英文页面，必须且只能包含非中文（英文）博文
+  const pureEnglishPosts = allPosts.filter(post => !post.slug.startsWith('zh-'));
 
-  // 3. 把过滤后的英文文章传给分页器
-  return paginate(englishPosts, {
+  return paginate(pureEnglishPosts, {
     params: { blog: undefined },
-    pageSize: blogListRobots?.postsPerPage,
+    pageSize: 10, 
   });
 }) satisfies GetStaticPaths;
 
