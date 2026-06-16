@@ -6,11 +6,11 @@ import { fetchPosts } from '~/utils/blog';
 export const prerender = true;
 
 const allPosts = await fetchPosts(); 
-// ⚡ 过滤：只留下【非】zh- 开头的英文文章
-const pureEnglishPosts = allPosts.filter(post => !post.slug.startsWith('zh-'));
+// ⚡ 过滤：只留下【是】zh- 开头的中文文章
+const pureChinesePosts = allPosts.filter(post => post.slug.startsWith('zh-'));
 
-const metadata = { title: 'Blog' };
+const metadata = { title: '博客文章' };
 ---
 <Layout metadata={metadata}>
-  <BlogList posts={pureEnglishPosts} /> 
+  <BlogList posts={pureChinesePosts} /> 
 </Layout>

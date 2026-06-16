@@ -4,14 +4,20 @@ import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
 import ToBlogLink from '~/components/blog/ToBlogLink.astro';
 import { getCanonical, getPermalink } from '~/utils/permalinks';
-import { getStaticPathsBlogPost } from '~/utils/blog';
+import { fetchPosts } from '~/utils/blog'; // ⚡ 引入全量捞取函数
 import { findImage } from '~/utils/images';
 
 export const prerender = true;
 
-// ⚡ 详情页必须导出 getStaticPaths，告诉 Astro 编译哪些单篇文章
+// ⚡ 核心分发中心：必须同时编译中英文所有文章的详情页！
 export const getStaticPaths = (async () => {
-  return await getStaticPathsBlogPost();
+  const posts = await fetchPosts();
+  return posts.map((post) => ({
+    params: {
+      blog: post.permalink, // 或者是 post.slug，取决于你的配置
+    },
+    props: { post },
+  }));
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
