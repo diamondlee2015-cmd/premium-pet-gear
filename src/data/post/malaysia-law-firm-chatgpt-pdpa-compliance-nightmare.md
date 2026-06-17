@@ -16,7 +16,7 @@ metadata:
 {
   "targetFileName": "malaysia-law-firm-chatgpt-pdpa-compliance-nightmare.webp",
   "altText": "Secure on-premise AI agent workflow for Malaysian law firms processing SPA and NDA documents in compliance with PDPA Act 709",
-  "imagePrompt": "A minimalist, high-tech 3D vector illustration for a premium professional tech blog cover image. Theme: glowing memory state machine nodes protecting legal scrolls and confidential document encryption keys within a local network. Style: Linear-inspired dark mode aesthetic, deep dark blue background (#000212), glowing neon purple (#5e6ad2) and emerald green accents, sleek corporate typography layout, clean isometric workflow connections, premium B2B SaaS vibe, ultra-clean, no photographic noise. --ar 16:10"
+  
 }
 -->
 
