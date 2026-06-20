@@ -1,6 +1,6 @@
 ---
 publishDate: 2026-06-01
-slug: "kl-aesthetic-clinic-whatsapp-ai-agent"
+slug: "kl-aesthetic-clinic-whatsapp-ai-agent-en"
 title: "Kuala Lumpur's Aesthetic Clinic Nightmare: How AI Agents Rescue Late-Night Disappearing WhatsApp Leads"
 excerpt: "Premium aesthetic clinics in KL and JB bleed high-value leads between 11 PM and 8 AM due to delayed responses. Discover how an on-premise AI agent built with n8n, Ollama, and Qdrant plugs this leak while ensuring strict PDPA compliance."
 image: "~/assets/images/kl-aesthetic-clinic-whatsapp-ai-agent.webp"
@@ -9,7 +9,7 @@ tags:
   - Agentic Workflow
   - Medical Aesthetics
 metadata:
-  canonical: https://nesthing.com/kl-aesthetic-clinic-whatsapp-ai-agent
+  canonical: https://nesthing.com/kl-aesthetic-clinic-whatsapp-ai-agent-en
 ---
 
 🚀 As a Founder or Chief Operating Officer of a premium medical aesthetics chain in Kuala Lumpur or Johor Bahru (JB), you are likely losing thousands of ringgit every single night to a silent operational leak:
