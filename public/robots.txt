@@ -1,2 +1,17 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# 特别对各大 AI 平台的特定爬虫放行（2026 顶级 GEO 策略）
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Anthropic-AI
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+# 告诉所有 AI 机器人，你的核心数字资产地图在这里
+Sitemap: https://nesthing.com/sitemap-index.xml
