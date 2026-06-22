@@ -1,6 +1,6 @@
 site:
   name: Nesthing
-  site: 'https://astrowind.vercel.app'
+  site: 'https://nesthing.com'
   base: '/'
   trailingSlash: false
 
