@@ -4,7 +4,7 @@ slug: "b2b-competitor-scraping-geo-intelligence-agent-en"
 title: "Autonomous Intelligence: Scaling B2B Market Scraping and GEO Content Engines via n8n"
 excerpt: "Discover how enterprise operators in Kuala Lumpur and Singapore deploy autonomous web scraping agents and multi-source synthesis workflows to track regional competitor shifts and dominate AI search engine queries."
 image: "~/assets/images/b2b-competitor-scraping-geo-intelligence-agent.webp"
-alt text: "Autonomous web scraping agent and generative content synthesis workflow network mapping competitor market movements securely for enterprise growth"
+alt: "Autonomous web scraping agent and generative content synthesis workflow network mapping competitor market movements securely for enterprise growth"
 category: "Enterprise AI"
 tags:
   - Agentic Workflow
