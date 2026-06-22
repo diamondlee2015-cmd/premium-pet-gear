@@ -99,11 +99,3 @@ By deploying an on-premise financial document analysis agent via n8n and Ollama,
 </script>
 
 ---
-
-<FluxPrompt>
-{
-  "target_filename": "private-financial-audit-ollama-n8n.webp",
-  "prompt": "A minimalist, high-tech 3D vector illustration for a premium professional tech blog cover image. Theme: glowing digital ledgers, financial balancing scales, and automated ledger spreadsheets feeding safely into a localized server rack secured by a massive neon padlock shield. Style: Linear-inspired dark mode aesthetic, deep dark blue background (#000212), glowing neon purple (#5e6ad2) and emerald green accents, sleek corporate typography layout, clean isometric workflow connections, premium B2B SaaS vibe, ultra-clean, no photographic noise. --ar 16:10",
-  "alt": "On-premise enterprise financial analysis and automated tax auditing workflow running locally via Docker, n8n, and Ollama to prevent institutional data leakage"
-}
-</FluxPrompt>
